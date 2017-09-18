@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yunke.synchronize_contol.dao.LoadSynchronizeShopMapper" >
+  <resultMap id="BaseResultMap" type="com.yunke.synchronize_contol.pojo.ShopToken" >
+    <id column="shop_id" property="shopId" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="token" property="token" jdbcType="VARCHAR" />
+  </resultMap>
+  <!-- 加载需要同步的店铺 -->
+  <select id="loadSynchronizeShop" resultMap="BaseResultMap" parameterType="java.util.Map" statementType="CALLABLE">
+        CALL load_synchronize_list(#{service_id,jdbcType=INTEGER,mode=IN},
+        #{sync_mold,jdbcType=VARCHAR,mode=IN}
+ 		)
+    </select>
+</mapper>
