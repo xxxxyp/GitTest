@@ -1,1 +1,1 @@
-我是一个粉刷匠，粉刷本领强。
+if you can do something,i'll respect you.
